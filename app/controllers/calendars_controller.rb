@@ -42,8 +42,8 @@ class CalendarsController < ApplicationController
         wday_num = wday_num - 7 #もしもwday_numが7以上であれば、7を引く
       end
 
-      days = { :month => (@todays_date+x).month, :date => (@todays_date+x).day, :plans => today_plans, :wday => wdays[wday_num]}
-      # days = { :month => (@todays_date+x).month, :date => (@todays_date+x).day, :plans => today_plans, :wday => wdays[(@todays_date+x).wday]}
+      days = { month: (@todays_date+x).month, date: (@todays_date+x).day, plans: today_plans, wday: wdays[wday_num]}
+      # days = { month => （@todays_date+x).month, :date => (@todays_date+x).day, :plans => today_plans, :wday => wdays[wday_num]}をシンボル型に変換
       @week_days.push(days)
     end
 
