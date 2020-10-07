@@ -2,7 +2,7 @@ class CalendarsController < ApplicationController
 
   # １週間のカレンダーと予定が表示されるページ
   def index
-    getWeek
+    get_week
     @plan = Plan.new
   end
 
@@ -19,7 +19,7 @@ class CalendarsController < ApplicationController
     params.require(:plan).permit(:calnders, :date, :plan)
   end
 
-  def getWeek
+  def get_week
     wdays = ['(日)','(月)','(火)','(水)','(木)','(金)','(土)']
     
 
@@ -37,7 +37,7 @@ class CalendarsController < ApplicationController
       end
 
       wday_num = Date.today.wday + x  #Date.today.wdayを利用して添字となる数値を得る
-      
+
       if  wday_num >= 7 #条件式を記述
         wday_num = wday_num - 7 #もしもwday_numが7以上であれば、7を引く
       end
